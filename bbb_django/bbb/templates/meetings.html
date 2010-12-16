@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Meetings{% endblock %}
+
+{% block content %}
+<h2>Meetings</h2>
+{% if meetings %}
+    <ul class="large">
+    {% for meeting in meetings %}
+        <li>{{ meeting.name }} <a class="more-info">view details</a>
+            <span class="right">
+            {% if meeting.info.end_time == "null" %}
+            {% if meeting.running == 'true'  %}
+                <span class="status running">Running</span>
+            {% else %}
+                <span class="status notrunning">Not running</span>
+            {% endif %}
+            <form method="GET" action="{% url join meeting.name %}"><input type="submit" value="Join"></form> <form method="POST" action="{% url delete meeting.name meeting.moderator_pw %}">{% csrf_token %}<input type="submit" value="End"></form>
+            {% else %}
+                <span class="status notrunning">Ended</span>
+            {% endif %}
+            </span>
+            <table>
+                {% for item in meeting.info.items %}
+                <tr>
+                <th>{{ item.0 }}</td>
+                <td>{{ item.1 }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>There are no meetings at the moment.</p>
+{% endif %}
+{% endblock %}

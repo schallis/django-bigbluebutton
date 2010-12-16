@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        {% block extrahead %}{% endblock%}
+        <link rel="stylesheet" type="text/css" href="/static/reset.css">
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.more-info').show();
+                $('.more-info').click(function() { $(this).parent().find('table').toggle() });
+            });
+        </script>
+        <style>
+html {
+    background: #eee;
+    font-family: Helvetica, sans-serif;
+    padding: 20px;
+    color: #444;
+}
+a {
+    text-decoration: none;
+    color: #4183c4;
+}
+ul.messages li {
+    border: 2px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -border-radius: 5px;
+    padding: 4px 10px;
+    margin-bottom: 10px;
+    color: #aaa;
+    display: block;
+}
+
+ul.messages {
+    margin-bottom: 10px;
+}
+ul.messages li.success, .success {
+    background: #E0FFB8;
+    border: 2px solid #84ca3a;
+    color: #84cA3A;
+}
+
+ul.messages li.error, .error {
+    background: #ffcccc;
+    border: 2px solid #c55;
+    color: #c55;
+}
+
+ul.messages li.warning, .warning {
+    background: #ffefbf;
+    border: 2px solid #FFa757;
+    color: #FFa757;
+}
+
+ul.messages li.info, .info {
+    background: #cef;
+    border: 2px solid #59e;
+    color: #59e;
+}
+
+.errorlist {
+    color: #c00;
+    min-width: 160px;
+    line-height:1.6em;
+    vertical-align: top;
+    padding: 0.2em 0.4em 0.2em 0;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    text-indent: -9999px;
+    display: block;
+    background: url(/static/logo.png) no-repeat top left;
+    height: 48px;
+    width: 194px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+h2 {
+    font-size: 1.6em;
+    display: block;
+    padding-bottom: 0.4em;
+    color: #000;
+    font-weight: bold;
+    letter-spacing: -0.03em;
+}
+.container {
+    width: 500px;
+    margin: 0 auto;
+}
+
+nav {
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0.2em;
+}
+.status {
+    font-size: 0.875em;
+    padding: 0 10px;
+    display: inline-block;
+    line-height: 26px;
+    border: 1px solid #777;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 53x;
+}
+.right {
+    display: inline-block;
+    float: right;
+}
+
+.running {
+    border-color: #84ca3a;
+    color: #84ca3a;
+}
+
+.notrunning {
+    border-color: #c55;
+    color: #c55;
+}
+nav ul li a {
+}
+ul.large li {
+    padding: 0.2em;
+    line-height: 1.8em;
+    display: block;
+}
+
+ul.large li table {
+    font-size: 0.75em;
+    line-height: 1.0;
+    padding: 0;
+    display: none;
+}
+
+ul.large li table.visible {
+    display: block;
+}
+
+.more-info {
+    cursor: pointer;
+    display: none;
+}
+
+ul.large li table tr {
+    padding: 0;
+}
+
+ul.large li table th {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.content, header {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.content {
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddd #ccc #aaa #ccc;
+}
+form {display: inline;}
+
+input[type='button'], input[type='submit'], a.button {
+    display:inline-block;height:28px;padding:0 10px 0 10px;font-size:0.875em;font-weight:bold;color:#333;text-shadow:1px 1px 0 #fff;white-space:nowrap;border:none;overflow:visible;cursor:pointer;border:1px solid #d4d4d4;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;background:#f4f4f4;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4f4f4',endColorstr='#ececec');background:-webkit-gradient(linear,left top,left bottom,from(#f4f4f4),to(#ececec));background:-moz-linear-gradient(top,#f4f4f4,#ececec);
+}
+
+input[type='button']:hover, input[type='submit']:hover, a.button:hover {
+    color:#fff;text-decoration:none;text-shadow:-1px -1px 0 rgba(0,0,0,0.3);border-color:#518cc6;border-bottom-color:#2a65a0;background:#599bdc;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#599bdc',endColorstr='#3072b3');background:-webkit-gradient(linear,left top,left bottom,from(#599bdc),to(#3072b3));background:-moz-linear-gradient(top,#599bdc,#3072b3);
+}
+input[type='button']:active, input[type='submit']:active, a.button:active{border-color:#2a65a0;border-bottom-color:#518cc6;background:#3072b3;filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#3072b3',endColorstr='#599bdc');background:-webkit-gradient(linear,left top,left bottom,from(#3072b3),to(#599bdc));background:-moz-linear-gradient(top,#3072b3,#599bdc);}
+
+input[type='text'], input[type='password'] {
+    font-size: 1.2em;
+    padding: 0.2em;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc#ddd #eee#ddd;
+}
+tr {
+    padding: 4px 0;
+    display: block;
+}
+th {
+    min-width: 160px;
+    text-align: right;
+    line-height:1.6em;
+    vertical-align: top;
+    padding: 0.2em 0.4em 0.2em 0;
+}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+
+        <header>
+        <h1>BBB Django</h1>
+
+        <nav>
+        <ul>
+            <li><a href="{% url home %}">Home</a></li>
+        {% if user.is_authenticated %}
+            <li>Logged in as {{ user.username }} <a href="{% url logout %}">Log out</a></li>
+        {% else %}
+            <li><a href="{% url login %}">Log in</a></li>
+        {% endif %}
+        </ul>
+        </nav>
+        </header>
+
+
+        <div class="content">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% block content %}{% endblock %}
+        </div>
+        </div>
+    </body>
+</html>
+

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<ul class="large">
+    <li><a href="{% url create %}">Create Meeting</a></li>
+    <li><a href="{% url meetings %}">Meetings</a></li>
+</ul>
+{% else %}
+<p>Welcome to the Django Big Blue Button web conferencing server. If you are here to attend a webinar then you should have been issued a URL to log into the meeting.</p>
+{% endif %}
+{% endblock %}

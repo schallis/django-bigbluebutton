@@ -1,0 +1,30 @@
+# Build related
+*.pyc
+*.egg
+*.[oa]
+pip-log.txt
+docs/.build
+docs/_build
+build/
+log/
+src/
+tmp/
+db/
+
+# Backup files
+*~.nib
+.*.swp
+*~
+*.tmp
+*.bak
+.metadata
+Thumbs.db
+Desktop.ini
+
+# Other repositories
+.hg
+.svn
+CVS
+
+# Mac OS X Finder and whatnot
+.DS_Store
