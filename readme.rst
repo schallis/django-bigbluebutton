@@ -3,7 +3,7 @@ django-bigbluebutton
 ====================
 :Info: A Django project for interacting with BigBlueButton
 :Author: Steve Challis (http://schallis.com)
-:Requirements: BigBlueButton >= 0.71, Django >= 1.0
+:Requires: BigBlueButton >= 0.71, Django >= 1.0
 
 This is a simple Django project and application that interacts with the
 `BigBlueButton <http://bigbluebutton.org>`_ API to allow you to create and
@@ -36,7 +36,6 @@ enough to change the extension to that required by Asterisk.
 
 Screenshots
 ===========
-.. image::
-https://github.com/schallis/django-bigbluebutton/raw/master/screenshots/screenshot-create.png
+.. image:: https://github.com/schallis/django-bigbluebutton/raw/master/screenshots/screenshot-create.png
 
 .. image:: https://github.com/schallis/django-bigbluebutton/raw/master/screenshots/screenshot-meetings.png
